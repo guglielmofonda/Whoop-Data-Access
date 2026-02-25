@@ -1,0 +1,12 @@
+# HAR files — contain session tokens, personal health data, request history
+*.har
+
+# Saved page files — contain personal data and are not needed for the guide
+WHOOPPage.html
+WHOOPPage_files/
+
+# Claude session data
+.claude/
+
+# macOS
+.DS_Store
