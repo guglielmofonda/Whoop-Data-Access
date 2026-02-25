@@ -1,6 +1,6 @@
-# WHOOP Internal API — Reverse Engineering Reference
+# WHOOP Internal API — Developer Reference
 
-A comprehensive reference for WHOOP's internal web API, reverse engineered from the `app.whoop.com` JavaScript bundle and live HAR captures. Covers authentication, all major endpoints, response schemas, and working code examples.
+A comprehensive reference for WHOOP's internal web API, documented through browser developer tools inspection of `app.whoop.com`. Covers authentication, all major endpoints, response schemas, and working code examples.
 
 > **Disclaimer**: These are undocumented internal endpoints used by WHOOP's web app. They are not part of the [official WHOOP developer API](https://developer.whoop.com/). They may change without notice. Use responsibly and in accordance with WHOOP's Terms of Service.
 
@@ -120,10 +120,10 @@ curl -s "https://api.prod.whoop.com/core-details-bff/v0/cycles/details?apiVersio
 ## How This Was Built
 
 This reference was produced by:
-1. **Static analysis** of the minified `app.js` bundle from `app.whoop.com` — extracting API endpoint definitions, parameter names, auth interceptors, and date formatting logic
-2. **HAR file capture** — recording live browser network traffic while navigating the app, then parsing response payloads to document real schemas
+1. **Browser developer tools inspection** of `app.whoop.com` — reading the publicly served JavaScript to understand API endpoint paths, parameter names, auth header format, and date formatting logic
+2. **HAR file capture** — recording browser network traffic while navigating the app as a logged-in user, then documenting the observed request/response shapes
 
-No tokens were brute-forced or credentials scraped. All data was captured from a personal WHOOP account.
+All data was captured from a personal WHOOP account by its owner.
 
 ---
 

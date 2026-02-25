@@ -1,6 +1,6 @@
-# WHOOP Internal API — Reverse Engineering Guide
+# WHOOP Internal API — Developer Reference Guide
 
-> **Sources**: Static analysis of `app.whoop.com` JavaScript bundle + live HAR captures
+> **Sources**: Browser developer tools inspection of `app.whoop.com` + live HAR captures
 > **Date**: 2026-02-24
 > **Athlete ID used in examples**: `YOUR_USER_ID`
 
