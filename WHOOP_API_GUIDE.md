@@ -1,8 +1,8 @@
-# WHOOP Internal API — Developer Reference Guide
+# WHOOP Personal Data API Reference
 
-> **Sources**: Browser developer tools inspection of `app.whoop.com` + live HAR captures
+> **Sources**: Browser network inspection of `app.whoop.com` + HAR captures from an authenticated personal session
 > **Date**: 2026-02-24
-> **Athlete ID used in examples**: `YOUR_USER_ID`
+> **User ID placeholder in examples**: `YOUR_USER_ID`
 
 ---
 
@@ -36,7 +36,7 @@
 
 WHOOP's web app (`app.whoop.com`) communicates with a microservices API at `https://api.prod.whoop.com`. The app is AngularJS-based and uses OAuth2 Bearer token authentication. All endpoints accept/return JSON.
 
-**These are internal/private API endpoints** — they are not part of WHOOP's public developer API (`developer.whoop.com`). They may change without notice.
+These endpoints power the WHOOP web app and are not part of the official developer API at `developer.whoop.com`. They may change without notice. For production or commercial use, the [official WHOOP developer API](https://developer.whoop.com/) is the appropriate path.
 
 **Architecture details:**
 - Microservices: each domain has its own path prefix (`/users-service/`, `/activities-service/`, `/core-details-bff/`, etc.)
@@ -103,7 +103,7 @@ Returns a new `access_token` (same response shape as login).
 
 ---
 
-### Manual Token Extraction (Already Logged In)
+### Copy Your Token from the Browser (Already Logged In)
 
 If you're logged in to `app.whoop.com`, extract your token without a login call:
 
@@ -892,6 +892,6 @@ curl -s -X POST "https://api.prod.whoop.com/api-server/oauth/token" \
 
 10. **HAR files strip auth headers** — Chrome removes `Authorization` and `Cookie` from saved HAR files. The header is confirmed present in real requests via JS source analysis. Always send the token.
 
-11. **These are internal endpoints** — WHOOP may change them without notice. For production use, consider the official public API at `developer.whoop.com`.
+11. **These endpoints may change** — WHOOP may update them without notice. For production or commercial use, the official public API at `developer.whoop.com` is the appropriate choice.
 
 12. **`account_id` vs `user_id`** — bootstrap returns two IDs. The `user_id` (`YOUR_USER_ID`) is what you use in API calls. The `account.id` (`YOUR_ACCOUNT_ID`) is the internal account identifier.

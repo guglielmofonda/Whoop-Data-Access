@@ -1,10 +1,8 @@
-# WHOOP Internal API — Developer Reference
+# WHOOP Personal Data Reference
 
-A comprehensive reference for WHOOP's internal web API, documented through browser developer tools inspection of `app.whoop.com`. Covers authentication, all major endpoints, response schemas, and working code examples.
+A reference for accessing your own personal health data from WHOOP programmatically. Documents the web endpoints that the WHOOP app uses to display your data, observed through your own authenticated browser session.
 
-> **Disclaimer**: These are undocumented internal endpoints used by WHOOP's own web app to display your personal data. They are not part of the [official WHOOP developer API](https://developer.whoop.com/) and may change without notice.
->
-> WHOOP's [Terms of Use](https://www.whoop.com/us/en/whoop-terms-of-use/) prohibit "web scraping, web harvesting, or web data extraction methods" and "decompiling or reverse engineering" the Services. This guide documents the network requests made by your own authenticated browser session to access your own personal data — it is not intended to enable scraping, bulk data collection, or access to other users' data. Review the Terms of Use and use your own judgement before building on these endpoints.
+> **Note**: WHOOP offers an [official developer API](https://developer.whoop.com/) and a personal data export feature — those are the recommended paths for most use cases. This guide is a personal reference for accessing your own health data. It is not intended for accessing other people's data, bulk collection, or commercial use. Always refer to the [WHOOP Terms of Use](https://www.whoop.com/us/en/whoop-terms-of-use/) before building anything beyond personal use.
 
 ---
 
@@ -12,20 +10,20 @@ A comprehensive reference for WHOOP's internal web API, documented through brows
 
 | File | Description |
 |---|---|
-| [`WHOOP_API_GUIDE.md`](./WHOOP_API_GUIDE.md) | Full API reference — endpoints, schemas, examples |
+| [`WHOOP_API_GUIDE.md`](./WHOOP_API_GUIDE.md) | Full endpoint reference — request params, response schemas, code examples |
 
 ---
 
 ## Quick Start
 
-### 1. Get your Bearer token
+### 1. Get your access token
 
-**Option A — Extract from browser (no login request needed):**
+**Option A — From the browser (no login request needed):**
 1. Log in to [app.whoop.com](https://app.whoop.com)
 2. Open DevTools → **Application** → **Local Storage** → `https://app.whoop.com`
 3. Copy `security.accessToken`
 
-**Option B — Login programmatically:**
+**Option B — Authenticate directly:**
 ```bash
 curl -s -X POST "https://api.prod.whoop.com/api-server/oauth/token" \
   -H "Content-Type: application/json" \
@@ -71,7 +69,7 @@ curl -s "https://api.prod.whoop.com/core-details-bff/v0/cycles/details?apiVersio
 
 ---
 
-## Important Rules
+## Technical Notes
 
 - **`apiVersion=7`** must be appended to every request as a query parameter
 - **`Authorization: bearer <token>`** — lowercase `bearer`
@@ -119,17 +117,15 @@ curl -s "https://api.prod.whoop.com/core-details-bff/v0/cycles/details?apiVersio
 
 ---
 
-## How This Was Built
+## How This Was Documented
 
 This reference was produced by:
-1. **Browser developer tools inspection** of `app.whoop.com` — reading the publicly served JavaScript to understand API endpoint paths, parameter names, auth header format, and date formatting logic
-2. **HAR file capture** — recording browser network traffic while navigating the app as a logged-in user, then documenting the observed request/response shapes
-
-All data was captured from a personal WHOOP account by its owner.
+1. Reading the JavaScript served to the browser at `app.whoop.com` to understand endpoint paths, parameter names, and request formatting
+2. Capturing the browser's network traffic (HAR export) while logged in as the account owner, then documenting the observed request and response shapes
 
 ---
 
 ## See Also
 
-- [WHOOP Developer API](https://developer.whoop.com/) — the official public API (separate endpoints, OAuth2 PKCE flow)
+- [WHOOP Developer API](https://developer.whoop.com/) — the official public API with OAuth2 PKCE support
 - [WHOOP Terms of Use](https://www.whoop.com/us/en/whoop-terms-of-use/)
