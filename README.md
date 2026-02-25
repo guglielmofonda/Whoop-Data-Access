@@ -2,7 +2,9 @@
 
 A comprehensive reference for WHOOP's internal web API, documented through browser developer tools inspection of `app.whoop.com`. Covers authentication, all major endpoints, response schemas, and working code examples.
 
-> **Disclaimer**: These are undocumented internal endpoints used by WHOOP's web app. They are not part of the [official WHOOP developer API](https://developer.whoop.com/). They may change without notice. Use responsibly and in accordance with WHOOP's Terms of Service.
+> **Disclaimer**: These are undocumented internal endpoints used by WHOOP's own web app to display your personal data. They are not part of the [official WHOOP developer API](https://developer.whoop.com/) and may change without notice.
+>
+> WHOOP's [Terms of Use](https://www.whoop.com/us/en/whoop-terms-of-use/) prohibit "web scraping, web harvesting, or web data extraction methods" and "decompiling or reverse engineering" the Services. This guide documents the network requests made by your own authenticated browser session to access your own personal data — it is not intended to enable scraping, bulk data collection, or access to other users' data. Review the Terms of Use and use your own judgement before building on these endpoints.
 
 ---
 
@@ -130,4 +132,4 @@ All data was captured from a personal WHOOP account by its owner.
 ## See Also
 
 - [WHOOP Developer API](https://developer.whoop.com/) — the official public API (separate endpoints, OAuth2 PKCE flow)
-- [WHOOP Terms of Service](https://www.whoop.com/terms-of-service/)
+- [WHOOP Terms of Use](https://www.whoop.com/us/en/whoop-terms-of-use/)
